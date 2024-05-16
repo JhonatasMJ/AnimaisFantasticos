@@ -22,6 +22,7 @@ function initTabNav() {
   }
 }
 
+//Accordion
 function initAccordion() {
   const accordionList = document.querySelectorAll(".js-accordion dt");
   if (accordionList.length) {
@@ -41,3 +42,30 @@ function initAccordion() {
 
 initTabNav();
 initAccordion();
+
+function scrollSuave() {
+  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+
+  function scrollToSection(event) {
+    event.preventDefault(); //Tira o padrão dos links que é levar para a seção
+    const href = event.currentTarget.getAttribute("href");
+    const section = document.querySelector(href); //Pegando a seção conforme clico no link, com o codigo de cima
+
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+
+    //FORMA ALTERNATIVA
+    /*   const topoSecao = section.offsetTop; //Pega o topo da seção */
+    /*   window.scrollTo({
+    top: topoSecao,
+    behavior: "smooth",
+  });
+} */
+  }
+
+  linksInternos.forEach((link) => {
+    link.addEventListener("click", scrollToSection);
+  });
+}
