@@ -40,9 +40,6 @@ function initAccordion() {
   }
 }
 
-initTabNav();
-initAccordion();
-
 function scrollSuave() {
   const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
 
@@ -69,3 +66,7 @@ function scrollSuave() {
     link.addEventListener("click", scrollToSection);
   });
 }
+
+initTabNav();
+initAccordion();
+scrollSuave();
