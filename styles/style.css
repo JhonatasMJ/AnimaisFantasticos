@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap");
+
+@import url("modal.css");
+
 * {
   margin: 0;
   padding: 0;
@@ -14,13 +17,13 @@ ul {
   list-style: none;
 }
 
-
-
-
 body {
   background: #faf6ed;
   color: #222;
   -webkit-font-smoothing: antialiased;
+}
+
+.grid-container {
   display: grid;
   grid-template-columns: 1fr 120px minmax(300px, 800px) 1fr;
 }
@@ -197,18 +200,17 @@ body::-webkit-scrollbar-track {
   font-weight: bold;
 }
 
-[data-anime="scroll"]{
+[data-anime="scroll"] {
   opacity: 0;
-  transform: translate3d(-30px, 0, 0);
-  transition: 0.3s;
+  transform: translate(0, 0, 0);
+  transition: 1s;
 }
 
 [data-anime="scroll"].ativo {
   opacity: 1;
 
-  transform: translate(0, 0, 0);
+  transform: translate3d(30px, 0, 0);
 }
-
 
 [data-tab="content"] section.ativo {
   display: block !important;
@@ -218,17 +220,15 @@ body::-webkit-scrollbar-track {
   animation: show-right 0.8s forwards;
 }
 
-[data-tab="content"] section.ativo.show-down{
+[data-tab="content"] section.ativo.show-down {
   animation: show-down 0.8s forwards;
 }
-
 
 .js [data-tab="content"] section {
   display: none;
 }
 
-
-.js [data-anime="accordion"]  dd {
+.js [data-anime="accordion"] dd {
   display: none;
 }
 
@@ -241,7 +241,7 @@ body::-webkit-scrollbar-track {
   content: "⤴";
 }
 
-.js [data-anime="accordion"]  dd.ativo {
+.js [data-anime="accordion"] dd.ativo {
   display: block;
   animation: slideDown 0.8s forwards;
 }
@@ -268,8 +268,6 @@ body::-webkit-scrollbar-track {
   }
 }
 
-
-
 @keyframes slideDown {
   from {
     opacity: 0;
@@ -281,11 +279,8 @@ body::-webkit-scrollbar-track {
   }
 }
 
-
-
-
 @media (max-width: 700px) {
-  body {
+  .grid-container {
     grid-template-columns: 1fr;
   }
   .menu,
