@@ -4,11 +4,13 @@ import initAccordion from "./modules/accordion.js";
 import initTabNav from "./modules/tabNav.js";
 import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
+import initDropdown from "./modules/dropdown.js";
 
-//Deixar na ordem Correta sentido cascata para funcionar
+// Ordem de execução em cascata, se necessário
 initTabNav();
 initModal();
 initAccordion();
 scrollSuave();
-initAnimacaoScroll();
 initTooltip();
+initAnimacaoScroll();
+initDropdown();
