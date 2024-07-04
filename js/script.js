@@ -5,12 +5,14 @@ import initTabNav from "./modules/tabNav.js";
 import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
+import initMenu from "./modules/menu.js";
 
 // Ordem de execução em cascata, se necessário
+initDropdown();
 initTabNav();
 initModal();
 initAccordion();
 scrollSuave();
 initTooltip();
+initMenu();
 initAnimacaoScroll();
-initDropdown();

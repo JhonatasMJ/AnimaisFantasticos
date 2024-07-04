@@ -5,9 +5,11 @@ export default function cliqueFora(element, events, callBack) {
   if (!element.hasAttribute(outside)) {
     //Se não tem o atributo ativar ele, caso já tenha nao ira ativar novamente
     events.forEach((userEvent) => {
-      html.addEventListener(userEvent, handleOutsideClick);
+      setTimeout(() => {
+        html.addEventListener(userEvent, handleOutsideClick);
+      });
     });
-    element.setAttribute(outside);
+    element.setAttribute(outside, ""); //Define o atributo com valor vazio
   }
   function handleOutsideClick(event) {
     if (!element.contains(event.target)) {
