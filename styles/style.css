@@ -24,6 +24,7 @@ body {
   background: #faf6ed;
   color: #222;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 .grid-container {
@@ -302,9 +303,6 @@ body::-webkit-scrollbar-track {
   .animais-lista {
     grid-column: 1;
     width: 250px;
-  }
-  .animais p {
-    max-width: 20ch;
   }
   .faq-lista,
   .dados,

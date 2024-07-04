@@ -3,7 +3,7 @@ import cliqueFora from "./cliqueFora.js";
 export default function initMenu() {
   const buttonMenu = document.querySelector('[data-menu="button"]');
   const menuList = document.querySelector('[data-menu="lista"]');
-  const eventos = ["click", "touchstart"];
+  const eventos = ["click"];
 
   function abrirMenu(event) {
     buttonMenu.classList.add("ativo");
