@@ -10,13 +10,13 @@ export default function initAnimacaoScroll() {
         const sectionVisivel = sectionTopo - windowMetade < 160; //Se o topo da seção for menor que zero, começa a animação
         if (sectionVisivel) {
           section.classList.add("ativo");
-        } else {
+        } else if (section.classList.contains("ativo")) {
+          //Se tiver a classe ativo, ele remove
           section.classList.remove("ativo"); //Caso scrolle para cima a animação ocorrera novamente
         }
       });
     }
-
+    animaScroll(); //Iniciar o site com a animação
     window.addEventListener("scroll", animaScroll);
   }
-  animaScroll(); //Iniciar o site com a animação
 }
