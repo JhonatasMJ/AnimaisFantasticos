@@ -7,6 +7,7 @@ import initTooltip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
 import initMenu from "./modules/menu.js";
 import initAnimaNumeros from "./modules/numeros.js";
+import initfuncionamento from "./modules/funcionamento.js";
 
 // Ordem de execução em cascata, se necessário
 initDropdown();
@@ -18,3 +19,4 @@ initTooltip();
 initMenu();
 initAnimacaoScroll();
 initAnimaNumeros();
+initfuncionamento();
