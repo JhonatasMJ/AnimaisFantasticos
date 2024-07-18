@@ -6,8 +6,9 @@ import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
 import initMenu from "./modules/menu.js";
-import initAnimaNumeros from "./modules/numeros.js";
+
 import initfuncionamento from "./modules/funcionamento.js";
+import initFetch from "./modules/fetch-animais.js";
 
 // Ordem de execução em cascata, se necessário
 initDropdown();
@@ -18,5 +19,5 @@ scrollSuave();
 initTooltip();
 initMenu();
 initAnimacaoScroll();
-initAnimaNumeros();
 initfuncionamento();
+initFetch();
