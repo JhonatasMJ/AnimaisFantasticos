@@ -1,18 +1,26 @@
-//Accordion
-export default function initAccordion() {
-    const accordionList = document.querySelectorAll('[data-anime="accordion"] dt');
-    if (accordionList.length) {
-      accordionList[0].classList.add("ativo");
-      accordionList[0].nextElementSibling.classList.add("ativo");
-  
-      function activeAccordion(event) {
-        this.classList.toggle("ativo");
-        this.nextElementSibling.classList.toggle("ativo");
-      }
-  
-      accordionList.forEach((item) => {
-        item.addEventListener("click", activeAccordion);
-      });
+export default class Accordion {
+  constructor(lista) {
+    this.accordionList = document.querySelectorAll(lista);
+    this.classeAtiva = 'ativo';
+  }
+
+  toggleAccordion(item) {
+    item.classList.toggle(this.classeAtiva); //Passa a classe ativa
+    item.nextElementSibling.classList.toggle(this.classeAtiva); //Passa no proximo elemento tambem
+  }
+
+  // Adiciona os eventos ao accordion
+  addAccordionEvent() {
+    this.accordionList.forEach((item) => {
+      item.addEventListener("click", () => this.toggleAccordion(item));
+    });
+  }
+
+  // Iniciar função
+  init() {
+    if (this.accordionList.length) {
+      this.toggleAccordion(this.accordionList[0]); // Deixa a primeira pergunta aberta
+      this.addAccordionEvent();
     }
   }
-  
+}

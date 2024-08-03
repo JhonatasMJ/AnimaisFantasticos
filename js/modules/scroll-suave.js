@@ -1,7 +1,7 @@
 //Export default é pra quando só tem uma coisa que queremos exportar
 export default class ScrollSuave {
   constructor(links, opcoes) { //Criando um constructor pra poder usar sempre
-    this.linksInternos = document.querySelectorAll(links);
+    this.linksInternos = document.querySelectorAll(links); //Pega os links que passei no parametro la no script
     if(opcoes === undefined) {
       this.opcoes = {behavior: "smooth", block: "start"};
     } else {
@@ -14,7 +14,6 @@ export default class ScrollSuave {
     event.preventDefault(); //Tira o padrão dos links que é levar para a seção
     const href = event.currentTarget.getAttribute("href");
     const section = document.querySelector(href); //Pegando a seção conforme clico no link, com o codigo de cima
-
     section.scrollIntoView(this.opcoes);
   }
 
