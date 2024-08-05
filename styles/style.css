@@ -332,7 +332,7 @@ body::-webkit-scrollbar-track {
 }
 
 [data-semana].aberto::after {
-  background-color: #3f4;
+  background: #3f4;
 }
 
 .btc-preco {

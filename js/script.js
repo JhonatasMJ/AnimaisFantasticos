@@ -1,6 +1,6 @@
 import ScrollSuave from "./modules/scroll-suave.js";
 import initAnimacaoScroll from "./modules/animacao-scroll.js";
-import initTabNav from "./modules/tabNav.js";
+import TabNav from "./modules/tabNav.js";
 import initModal from "./modules/modal.js";
 import initTooltip from "./modules/tooltip.js";
 import initDropdown from "./modules/dropdown.js";
@@ -15,18 +15,19 @@ import Accordion from "./modules/accordion.js";
 
 
 initDropdown();
-initTabNav();
+initfuncionamento();
+
 initModal();
 initTooltip();
 initMenu();
 initAnimacaoScroll();
-initfuncionamento();
 initFetch();
 initBitCoin();
 
 
 
-
+const tabNav = new TabNav('[data-tab="menu"] li', '[data-tab="content"] section')
+tabNav.init()
 
 const scrollSuave = new ScrollSuave('[data-menu="suave"] a[href^="#"]'); //Primeira opção são os links da onde vou clicar
 scrollSuave.init()
