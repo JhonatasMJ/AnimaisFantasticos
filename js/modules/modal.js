@@ -1,23 +1,43 @@
-export default function initModal() {
-  const btnAbrir = document.querySelector('[data-modal="abrir"]');
-  const btnFechar = document.querySelector('[data-modal="fechar"]');
-  const containerModal = document.querySelector('[data-modal="container"]');
+export default class Modal {
+  constructor(botaoAbrir, botaoFechar, containerModal) {
+    this.btnAbrir = document.querySelector(botaoAbrir);
+    this.btnFechar = document.querySelector(botaoFechar);
+    this.containerModal = document.querySelector(containerModal);
+    // bind this ao callback para fazer referência ao objeto da classe
+    this.eventToggleModal = this.eventToggleModal.bind(this);
+    this.modalFora = this.modalFora.bind(this);
+  }
 
-  if (btnAbrir && btnFechar && containerModal) {
-    function toggleModal(event) {
-      event.preventDefault(); //Para que o link não tente fazer nada
-      containerModal.classList.toggle("ativo");
+  // Abre ou fecha o modal
+  toggleModal() {
+    this.containerModal.classList.toggle("ativo");
+  }
+
+  // Adiciona o evento de toggle ao modal
+  eventToggleModal(event) {
+    event.preventDefault(); // Para que o link não tente fazer nada
+    this.toggleModal();
+  }
+
+  // Fecha o modal ao clicar do lado de fora
+  modalFora(event) {
+    if (event.target === this.containerModal) {
+      // Se o target do evento for igual ao container modal, fechar modal
+      this.toggleModal();
     }
+  }
 
-    function modalFora(event) {
-      if (event.target === this) {
-        //Se o target do evento for = modal.container fechar modal
-        toggleModal(event);
-      }
+  // Adiciona os eventos ao modal
+  addModalEvent() {
+    this.btnAbrir.addEventListener("click", this.eventToggleModal);
+    this.btnFechar.addEventListener("click", this.eventToggleModal);
+    this.containerModal.addEventListener("click", this.modalFora);
+  }
+
+  init() {
+    if (this.btnAbrir && this.btnFechar && this.containerModal) {
+      this.addModalEvent();
     }
-
-    btnAbrir.addEventListener("click", toggleModal);
-    btnFechar.addEventListener("click", toggleModal);
-    containerModal.addEventListener("click", modalFora);
+    return this;
   }
 }
