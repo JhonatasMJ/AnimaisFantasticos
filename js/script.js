@@ -6,23 +6,20 @@ import TabNav from "./modules/tabNav.js";
 import initDropdown from "./modules/dropdown.js";
 import initMenu from "./modules/menu.js";
 import initfuncionamento from "./modules/funcionamento.js";
-import initFetch from "./modules/fetch-animais.js";
+import fetchAnimais from "./modules/fetch-animais.js";
 import initBitCoin from "./bitcoin.js";
 import Accordion from "./modules/accordion.js";
 
 // Ordem de execução em cascata, se necessário
 initDropdown();
 initfuncionamento();
-
 initMenu();
 initAnimacaoScroll();
-initFetch();
 initBitCoin();
-
-
+fetchAnimais('./js/animais-api.json', '.numeros-grid');
 
 const scrollSuave = new ScrollSuave('a[href^="#"]'); //Primeira opção são os links da onde vou clicar
-scrollSuave.init()
+scrollSuave.init();
 
 const accordion = new Accordion('[data-anime="accordion"] dt');
 accordion.init();
@@ -35,4 +32,3 @@ modal.init();
 
 const tooltip = new Tooltip('[data-tooltip]'); // Certifique-se de passar o seletor correto
 tooltip.init();
-
