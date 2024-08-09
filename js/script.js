@@ -1,7 +1,7 @@
 import Tooltip from "./modules/tooltip.js";  
 import Modal from "./modules/modal.js";
 import ScrollSuave from "./modules/scroll-suave.js";
-import initAnimacaoScroll from "./modules/animacao-scroll.js";
+import ScrollAnima from "./modules/animacao-scroll.js";
 import TabNav from "./modules/tabNav.js";
 import initDropdown from "./modules/dropdown.js";
 import initMenu from "./modules/menu.js";
@@ -14,10 +14,13 @@ import Accordion from "./modules/accordion.js";
 initDropdown();
 initfuncionamento();
 initMenu();
-initAnimacaoScroll();
+
 
 fetchAnimais('./js/animais-api.json', '.numeros-grid');
 fetchBitcoin('https://blockchain.info/ticker','.btc-preco');
+
+const scrollAnima = new ScrollAnima('[data-anime="scroll"]')
+scrollAnima.init()
 
 const scrollSuave = new ScrollSuave('a[href^="#"]'); //Primeira opção são os links da onde vou clicar
 scrollSuave.init();

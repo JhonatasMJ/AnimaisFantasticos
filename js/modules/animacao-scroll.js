@@ -1,22 +1,46 @@
-export default function initAnimacaoScroll() {
-  const sections = document.querySelectorAll('[data-anime="scroll"]'); //Pegar a seçao que deseja animar
-
-  if (sections.length) {
-    const windowMetade = window.innerHeight * 0.3; //Fazer um calculo a partir do tamanho da tela para começar a animação
-
-    function animaScroll() {
-      sections.forEach((section) => {
-        const sectionTopo = section.getBoundingClientRect().top - windowMetade; //Pegar o tamanho do topo de seção e subtrair com o calculo acima
-        const sectionVisivel = sectionTopo - windowMetade < 160; //Se o topo da seção for menor que zero, começa a animação
-        if (sectionVisivel) {
-          section.classList.add("ativo");
-        } else if (section.classList.contains("ativo")) {
-          //Se tiver a classe ativo, ele remove
-          section.classList.remove("ativo"); //Caso scrolle para cima a animação ocorrera novamente
-        }
-      });
-    }
-    animaScroll(); //Iniciar o site com a animação
-    window.addEventListener("scroll", animaScroll);
+export default class ScrollAnima {
+  constructor(sections) {
+    this.sections = document.querySelectorAll(sections); // Pega a seção que deseja animar
+    this.windowMetade = window.innerHeight * 0.3; // Cálculo para começar a animação
+    this.checarDistancia = this.checarDistancia.bind(this); // Bind do método animaScroll
   }
-}
+
+  //Pega a distância de cada item em relação ao topo do site
+  pegarDistancia() {
+      this.distancia =  [...this.sections].map(section =>{ //Transformo em Array  e passa um map 
+      const offset = section.offsetTop
+      return {
+        element: section,
+        offset: Math.floor(offset - this.windowMetade),
+      };
+    });
+  }
+
+  //Verifica a distância em cada objeto em relação ao scroll do site
+  checarDistancia () {
+    this.distancia.forEach((section) =>{
+      if(window.scrollY > section.offset) {
+        section.element.classList.add("ativo");
+      } else if (section.element.classList.contains("ativo")) {
+        section.element.classList.remove("ativo"); // Caso scrolle para cima a animação ocorrerá novamente
+      }
+      })
+    }
+    
+      init() {
+        if(this.sections.length) {
+          this.pegarDistancia()
+          this.checarDistancia()
+          window.addEventListener('scroll', this.checarDistancia);
+        }
+        return this
+      }
+
+      //Remove o evento de scroll
+      stop() {
+        window.removeEventListener('scroll', this.checarDistancia);
+      }
+  }
+
+
+
