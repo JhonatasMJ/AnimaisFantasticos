@@ -3,21 +3,25 @@ import Modal from "./modules/modal.js";
 import ScrollSuave from "./modules/scroll-suave.js";
 import ScrollAnima from "./modules/animacao-scroll.js";
 import TabNav from "./modules/tabNav.js";
-import initDropdown from "./modules/dropdown.js";
+import Dropdown from "./modules/dropdown.js";
 import initMenu from "./modules/menu.js";
 import initfuncionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
 import fetchBitcoin from "./bitcoin.js";
 import Accordion from "./modules/accordion.js";
+import Dropdown from "./modules/dropdown.js";
 
 // Ordem de execução em cascata, se necessário
-initDropdown();
+
 initfuncionamento();
 initMenu();
 
 
 fetchAnimais('./js/animais-api.json', '.numeros-grid');
 fetchBitcoin('https://blockchain.info/ticker','.btc-preco');
+
+const dropdown = new Dropdown("[data-dropdown]")
+dropdown.init()
 
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]')
 scrollAnima.init()
