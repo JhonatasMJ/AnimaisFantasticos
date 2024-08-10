@@ -6,7 +6,7 @@ export default class Menu {
   this.menuList = document.querySelector(menuList);
 
   if(eventos === undefined || null) { //Se não for definido irá seguir o padrão setado
-    this.eventos = ['touchstart', 'click'];
+    this.eventos = ['click'];
   } else {
     this.eventos = eventos
   }
