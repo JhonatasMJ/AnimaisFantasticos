@@ -313,6 +313,8 @@ body::-webkit-scrollbar-track {
 
   .menu {
     margin-top: 0px;
+    display: flex;
+    justify-content: end;
   }
   .copy {
     margin-bottom: 0px;
