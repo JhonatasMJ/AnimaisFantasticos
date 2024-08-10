@@ -1,19 +1,44 @@
 import cliqueFora from "./cliqueFora.js";
 
-export default function initMenu() {
-  const buttonMenu = document.querySelector('[data-menu="button"]');
-  const menuList = document.querySelector('[data-menu="lista"]');
-  const eventos = ["click"];
+export default class Menu {
+  constructor(buttonMenu,menuList,eventos) {
+  this.buttonMenu = document.querySelector(buttonMenu);
+  this.menuList = document.querySelector(menuList);
 
-  function abrirMenu(event) {
-    buttonMenu.classList.add("ativo");
-    menuList.classList.add("ativo");
-    cliqueFora(menuList, eventos, () => {
-      buttonMenu.classList.remove("ativo");
-      menuList.classList.remove("ativo");
+  if(eventos === undefined || null) { //Se não for definido irá seguir o padrão setado
+    this.eventos = ['touchstart', 'click'];
+  } else {
+    this.eventos = eventos
+  }
+  this.classeAtiva = 'ativo'
+  this.abrirMenu = this.abrirMenu.bind(this)
+
+
+  }
+
+
+  abrirMenu() {
+    this.buttonMenu.classList.add(this.classeAtiva);
+    this.menuList.classList.add(this.classeAtiva);
+    cliqueFora(this.menuList, this.eventos, () => {
+      this.buttonMenu.classList.remove(this.classeAtiva);
+      this.menuList.classList.remove(this.classeAtiva);
     });
   }
-  eventos.forEach((evento) => {
-    buttonMenu.addEventListener(evento, abrirMenu);
-  });
+
+  addMenuMobileEvents() {
+    this.eventos.forEach((evento) => {
+      this.buttonMenu.addEventListener(evento, this.abrirMenu);
+    });
+  }
+
+  init() {
+    if(this.buttonMenu && this.menuList) {
+      this.addMenuMobileEvents()
+    }
+    return this
+  }
 }
+
+
+
