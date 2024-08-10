@@ -3,7 +3,7 @@ import Modal from "./modules/modal.js";
 import ScrollSuave from "./modules/scroll-suave.js";
 import ScrollAnima from "./modules/animacao-scroll.js";
 import TabNav from "./modules/tabNav.js";
-import initfuncionamento from "./modules/funcionamento.js";
+import Funcionamento from "./modules/funcionamento.js";
 import fetchAnimais from "./modules/fetch-animais.js";
 import fetchBitcoin from "./bitcoin.js";
 import Accordion from "./modules/accordion.js";
@@ -12,7 +12,7 @@ import Menu from "./modules/menu.js";
 
 // Ordem de execução em cascata, se necessário
 
-initfuncionamento();
+
 
 
 
@@ -45,3 +45,6 @@ tooltip.init();
 
 const menuMobile = new Menu('[data-menu="button"]','[data-menu="lista"]')
 menuMobile.init()
+
+const funcionamento = new Funcionamento("[data-semana]",'aberto')
+funcionamento.init()
