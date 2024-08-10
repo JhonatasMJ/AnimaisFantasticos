@@ -1,7 +1,7 @@
 import cliqueFora from "./cliqueFora.js";
 
 export default class Dropdown {
-  constructor(dropdownMenus) {
+  constructor(dropdownMenus,eventos) {
     this.dropdownMenus = document.querySelectorAll(dropdownMenus);
 
     if(eventos === undefined) { //Se não for definido irá seguir o padrão setado
@@ -9,8 +9,8 @@ export default class Dropdown {
     } else {
       this.eventos = eventos
     }
-    this.classeAtiva = 'ativo'
-    this.ativarDropdown = this.ativarDropdown.bind(this);
+    
+    this.classeAtiva = 'ativo';  this.ativarDropdown = this.ativarDropdown.bind(this)
 
   }
 
