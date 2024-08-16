@@ -306,16 +306,30 @@ body::-webkit-scrollbar-track {
     grid-column: 1;
     width: 250px;
   }
+
+  .animais-descricao p {
+    font-size: 14px;
+  }
   .faq-lista,
   .dados,
   .mapa {
     grid-column: 1/3;
   }
 
+  .mapa img {
+    width: 16rem;
+    margin-bottom: 14px;
+  }
+
   .menu {
     margin-top: 0px;
     display: flex;
     justify-content: end;
+  }
+
+  dd.ativo {
+    flex-wrap: wrap;
+    font-size: 14px;
   }
   .copy {
     margin-bottom: 0px;
