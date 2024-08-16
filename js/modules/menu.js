@@ -41,6 +41,3 @@ export default class Menu {
 }
 
 
-//ARROW FUNCTION => 
-// MENOR E MAIOR <= >= 
-//COMPARAÇÃO === ===

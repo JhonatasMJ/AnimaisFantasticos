@@ -9,6 +9,7 @@ import fetchBitcoin from "./bitcoin.js";
 import Accordion from "./modules/accordion.js";
 import Dropdown from "./modules/dropdown.js";
 import Menu from "./modules/menu.js";
+import {SlideNav} from './modules/slide.js';
 
 // Ordem de execução em cascata, se necessário
 
@@ -48,3 +49,8 @@ menuMobile.init()
 
 const funcionamento = new Funcionamento("[data-semana]",'aberto')
 funcionamento.init()
+
+const slide = new SlideNav('.slide', '.wrapper');
+slide.init()
+slide.addControl('.custom-controls')
+/* slide.addArrow('.prev', '.next') */
