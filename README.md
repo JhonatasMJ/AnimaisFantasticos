@@ -1,5 +1,5 @@
 
-# 🚲 Animais Fantásticos
+# 🦊 Animais Fantásticos
 
 
 Descubra os animais mais fantásticos da natureza
@@ -20,4 +20,4 @@ Funcionalidade simples, medianas e complexas em JavaScript
 
 ## Deploy
 
-https://jhow-bikcraft.vercel.app/
+https://animais-fantasticos-one-murex.vercel.app
