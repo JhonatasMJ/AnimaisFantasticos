@@ -6,6 +6,7 @@
 @import url("menu-mobile.css");
 @import url("numeros.css");
 @import url("slides.css");
+@import url("animacao.css");
 
 * {
   margin: 0;

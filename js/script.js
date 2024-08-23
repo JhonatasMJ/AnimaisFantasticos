@@ -9,6 +9,7 @@ import fetchBitcoin from "./bitcoin.js";
 import Accordion from "./modules/accordion.js";
 import Dropdown from "./modules/dropdown.js";
 import Menu from "./modules/menu.js";
+import AnimaNumeros from "./modules/numeros.js";
 import {SlideNav} from './modules/slide.js';
 
 // Ordem de execução em cascata, se necessário
@@ -17,8 +18,7 @@ import {SlideNav} from './modules/slide.js';
 
 
 
-fetchAnimais('./js/animais-api.json', '.numeros-grid');
-fetchBitcoin('https://blockchain.info/ticker','.btc-preco');
+
 
 
 
@@ -28,6 +28,7 @@ dropdown.init()
 
 const scrollAnima = new ScrollAnima('[data-anime="scroll"]')
 scrollAnima.init()
+
 
 const scrollSuave = new ScrollSuave('a[href^="#"]'); //Primeira opção são os links da onde vou clicar
 scrollSuave.init();
@@ -54,3 +55,22 @@ const slide = new SlideNav('.slide', '.wrapper');
 slide.init()
 slide.addControl('.custom-controls')
 /* slide.addArrow('.prev', '.next') */
+
+fetchAnimais('./js/animais-api.json', '.numeros-grid');
+fetchBitcoin('https://blockchain.info/ticker','.btc-preco');
+
+
+if (
+    window.location.pathname === "/index.html" ||
+    window.location.pathname === "/"
+  ) {
+    document.body.classList.add("preloader");
+  
+    window.addEventListener("load", () => {
+      setTimeout(function () {
+        document.body.classList.add("loaded");
+        document.body.classList.remove("preloader");
+      }, 3500);
+    });
+  }
+  
