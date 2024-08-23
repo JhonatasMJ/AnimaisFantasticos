@@ -11,7 +11,7 @@ HTML,CSS, JS
 
 ## Screenshots
 
-![App Screenshot](./imgs/print.PNG)
+![App Screenshot](./assets/imgs/print.PNG)
 
 
 ## Aprendizados
